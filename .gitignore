@@ -20,6 +20,7 @@ node_modules
 /contract/target
 /frontend/node_modules
 
+
 # misc
 .DS_Store
 .env.local
