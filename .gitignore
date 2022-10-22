@@ -19,7 +19,8 @@ node_modules
 /build
 /contract/target
 /frontend/node_modules
-
+/frontend/.parcel-cache
+/frontend/dist
 
 # misc
 .DS_Store
