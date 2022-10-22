@@ -2914,11 +2914,11 @@ var _nearWallet = require("./near-wallet");
 // When creating the wallet you can optionally ask to create an access key
 // Having the key enables to call non-payable methods without interrupting the user to sign
 const wallet = new (0, _nearWallet.Wallet)({
-    createAccessKeyFor: "dev-1666401641370-26645961386203"
+    createAccessKeyFor: "ncd-entrenamiento-colaborativo_ia.eber.testnet"
 });
 // Abstract the logic of interacting with the contract to simplify your flow
-const helloNEAR = new (0, _nearInterface.HelloNEAR)({
-    contractId: "dev-1666401641370-26645961386203",
+const contratoNEAR = new (0, _nearInterface.EntrenamientoColaborativo)({
+    contractId: "ncd-entrenamiento-colaborativo_ia.eber.testnet",
     walletToUse: wallet
 });
 // Setup on page load
@@ -2926,7 +2926,7 @@ window.onload = async ()=>{
     const isSignedIn = await wallet.startUp();
     (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {
         isSignedIn: isSignedIn,
-        helloNEAR: helloNEAR,
+        contratoNEAR: contratoNEAR,
         wallet: wallet
     }, void 0, false, {
         fileName: "index.js",
@@ -27088,33 +27088,32 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _globalCss = require("./assets/global.css");
 var _uiComponents = require("./ui-components");
 var _s = $RefreshSig$();
-function App({ isSignedIn , helloNEAR , wallet  }) {
+function App({ isSignedIn , contratoNEAR , wallet  }) {
     _s();
-    const [valueFromBlockchain, setValueFromBlockchain] = (0, _reactDefault.default).useState();
+    const [relacion, setRelacion] = (0, _reactDefault.default).useState();
     const [uiPleaseWait, setUiPleaseWait] = (0, _reactDefault.default).useState(true);
     // Get blockchian state once on component load
     (0, _reactDefault.default).useEffect(()=>{
-        helloNEAR.getGreeting().then(setValueFromBlockchain).catch(alert).finally(()=>{
+        contratoNEAR.getColaboradores().then(setRelacion).catch(alert).finally(()=>{
             setUiPleaseWait(false);
         });
     }, []);
     /// If user not signed-in with wallet - show prompt
     if (!isSignedIn) // Sign-in flow will reload the page later
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _uiComponents.SignInPrompt), {
-        greeting: valueFromBlockchain,
         onClick: ()=>wallet.signIn()
     }, void 0, false, {
         fileName: "App.js",
         lineNumber: 27,
         columnNumber: 12
     }, this);
-    function changeGreeting(e) {
+    function setDatasetId(e) {
         e.preventDefault();
         setUiPleaseWait(true);
-        const { greetingInput  } = e.target.elements;
-        helloNEAR.setGreeting(greetingInput.value).then(async ()=>{
-            return helloNEAR.getGreeting();
-        }).then(setValueFromBlockchain).finally(()=>{
+        const { datasetIdIn  } = e.target.elements;
+        contratoNEAR.setColaborador(parseInt(datasetIdIn.value)).then(async ()=>{
+            return contratoNEAR.getColaboradores();
+        }).then(setRelacion).finally(()=>{
             setUiPleaseWait(false);
         });
     }
@@ -27132,28 +27131,18 @@ function App({ isSignedIn , helloNEAR , wallet  }) {
                 className: uiPleaseWait ? "please-wait" : "",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        children: [
-                            "The contract says: ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "greeting",
-                                children: valueFromBlockchain
-                            }, void 0, false, {
-                                fileName: "App.js",
-                                lineNumber: 47,
-                                columnNumber: 30
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                        children: "Juntos hacemos accesible la tecnolog\xeda IA"
+                    }, void 0, false, {
                         fileName: "App.js",
                         lineNumber: 46,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                        onSubmit: changeGreeting,
+                        onSubmit: setDatasetId,
                         className: "change",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "Change greeting:"
+                                children: "Ingresa el ID del dataset que quieres entrenar:"
                             }, void 0, false, {
                                 fileName: "App.js",
                                 lineNumber: 50,
@@ -27163,8 +27152,8 @@ function App({ isSignedIn , helloNEAR , wallet  }) {
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                         autoComplete: "off",
-                                        defaultValue: valueFromBlockchain,
-                                        id: "greetingInput"
+                                        // defaultValue={valueFromBlockchain}
+                                        id: "datasetIdIn"
                                     }, void 0, false, {
                                         fileName: "App.js",
                                         lineNumber: 52,
@@ -27173,7 +27162,7 @@ function App({ isSignedIn , helloNEAR , wallet  }) {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                children: "Save"
+                                                children: "Empezar"
                                             }, void 0, false, {
                                                 fileName: "App.js",
                                                 lineNumber: 58,
@@ -27204,7 +27193,7 @@ function App({ isSignedIn , helloNEAR , wallet  }) {
                         lineNumber: 49,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _uiComponents.EducationalText), {}, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _uiComponents.NotaInformativa), {}, void 0, false, {
                         fileName: "App.js",
                         lineNumber: 63,
                         columnNumber: 9
@@ -27219,7 +27208,7 @@ function App({ isSignedIn , helloNEAR , wallet  }) {
     }, void 0, true);
 }
 exports.default = App;
-_s(App, "kS24ka7QLm9/xaObsbkZiE5+6uE=");
+_s(App, "rU/bF1RZPo0F9chOyP0X9QwS9wk=");
 _c = App;
 var _c;
 $RefreshReg$(_c, "App");
@@ -27821,54 +27810,37 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SignInPrompt", ()=>SignInPrompt);
 parcelHelpers.export(exports, "SignOutButton", ()=>SignOutButton);
-parcelHelpers.export(exports, "EducationalText", ()=>EducationalText);
+parcelHelpers.export(exports, "NotaInformativa", ()=>NotaInformativa);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function SignInPrompt({ greeting , onClick  }) {
+function SignInPrompt({ onClick  }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: [
-                    "The contract says: ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        className: "greeting",
-                        children: greeting
-                    }, void 0, false, {
-                        fileName: "ui-components.js",
-                        lineNumber: 7,
-                        columnNumber: 28
-                    }, this)
-                ]
-            }, void 0, true, {
+                children: "Bienvenido a la plataforma de entrenamiento colaborativo de IA"
+            }, void 0, false, {
                 fileName: "ui-components.js",
                 lineNumber: 6,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                children: "Welcome to NEAR!"
+                children: "\xbfTe gustar\xeda participar en el entrenamiento colaborativo?"
             }, void 0, false, {
                 fileName: "ui-components.js",
                 lineNumber: 9,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Your contract is storing a greeting message in the NEAR blockchain. To change it you need to sign in using the NEAR Wallet. It is very simple, just use the button below."
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Si estas de acuerdo inicia sesi\xf3n con tu wallet de NEAR"
             }, void 0, false, {
                 fileName: "ui-components.js",
                 lineNumber: 12,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: 'Do not worry, this app runs in the test network ("testnet"). It works just like the main network ("mainnet"), but using NEAR Tokens that are only for testing!'
-            }, void 0, false, {
-                fileName: "ui-components.js",
-                lineNumber: 17,
-                columnNumber: 7
-            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "ui-components.js",
-                lineNumber: 22,
+                lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27880,12 +27852,12 @@ function SignInPrompt({ greeting , onClick  }) {
                     children: "Sign in with NEAR Wallet"
                 }, void 0, false, {
                     fileName: "ui-components.js",
-                    lineNumber: 24,
+                    lineNumber: 17,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "ui-components.js",
-                lineNumber: 23,
+                lineNumber: 16,
                 columnNumber: 7
             }, this)
         ]
@@ -27908,183 +27880,58 @@ function SignOutButton({ accountId , onClick  }) {
         ]
     }, void 0, true, {
         fileName: "ui-components.js",
-        lineNumber: 32,
+        lineNumber: 25,
         columnNumber: 5
     }, this);
 }
 _c1 = SignOutButton;
-function EducationalText() {
+function NotaInformativa() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Look at that! A Hello World app! This greeting is stored on the NEAR blockchain. Check it out:"
+                children: "Tomar en cuenta lo siguiente:"
             }, void 0, false, {
                 fileName: "ui-components.js",
-                lineNumber: 41,
+                lineNumber: 34,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ol", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: [
-                            "Look in ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "frontend/App.js"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 46,
-                                columnNumber: 19
-                            }, this),
-                            " - you'll see ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "getGreeting"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 46,
-                                columnNumber: 61
-                            }, this),
-                            " and ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "setGreeting"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 46,
-                                columnNumber: 90
-                            }, this),
-                            " being called on ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "contract"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 46,
-                                columnNumber: 131
-                            }, this),
-                            ". What's this?"
-                        ]
-                    }, void 0, true, {
+                        children: "Cuando inicias 10 NEAR se pondran en staking, una vez pases el proceso de validaci\xf3n se libreran y adicionalmente se te depositaran 10 NEAR como recompensa."
+                    }, void 0, false, {
                         fileName: "ui-components.js",
-                        lineNumber: 45,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: [
-                            "Ultimately, this ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "contract"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 49,
-                                columnNumber: 28
-                            }, this),
-                            " code is defined in ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "./contract"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 49,
-                                columnNumber: 69
-                            }, this),
-                            " – this is the source code for your ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                target: "_blank",
-                                rel: "noreferrer",
-                                href: "https://docs.near.org/docs/develop/contracts/overview",
-                                children: "smart contract"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 49,
-                                columnNumber: 128
-                            }, this),
-                            "."
-                        ]
-                    }, void 0, true, {
+                        children: "El proceso de validaci\xf3n consiste en que el etiquetado que realices debe tener al menos el 90% de coincidencia con las etiquetas en nuestra base de datos, despu\xe9s de 3 colaboraciones posteriores en la base de datos que elegiste."
+                    }, void 0, false, {
                         fileName: "ui-components.js",
-                        lineNumber: 48,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: [
-                            "When you run ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "npm run deploy"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 51,
-                                columnNumber: 24
-                            }, this),
-                            ", the code in ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "./contract"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 51,
-                                columnNumber: 65
-                            }, this),
-                            " gets deployed to the NEAR testnet. You can see how this happens by looking in ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
-                                children: "package.json"
-                            }, void 0, false, {
-                                fileName: "ui-components.js",
-                                lineNumber: 51,
-                                columnNumber: 167
-                            }, this),
-                            "."
-                        ]
-                    }, void 0, true, {
+                        children: "Si llegado las 3 colaboraciones tu etiquetado no ha llegado al nivel requerido de coincidencia, pierdes los NEAR en staking y estos son pasado al pozo de recompensas."
+                    }, void 0, false, {
                         fileName: "ui-components.js",
-                        lineNumber: 50,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "ui-components.js",
-                lineNumber: 44,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                fileName: "ui-components.js",
-                lineNumber: 53,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "To keep learning, check out ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        target: "_blank",
-                        rel: "noreferrer",
-                        href: "https://docs.near.org",
-                        children: "the NEAR docs"
-                    }, void 0, false, {
-                        fileName: "ui-components.js",
-                        lineNumber: 55,
-                        columnNumber: 37
-                    }, this),
-                    " or look through some ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        target: "_blank",
-                        rel: "noreferrer",
-                        href: "https://examples.near.org",
-                        children: "example apps"
-                    }, void 0, false, {
-                        fileName: "ui-components.js",
-                        lineNumber: 55,
-                        columnNumber: 141
-                    }, this),
-                    "."
-                ]
-            }, void 0, true, {
-                fileName: "ui-components.js",
-                lineNumber: 54,
+                lineNumber: 37,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 }
-_c2 = EducationalText;
+_c2 = NotaInformativa;
 var _c, _c1, _c2;
 $RefreshReg$(_c, "SignInPrompt");
 $RefreshReg$(_c1, "SignOutButton");
-$RefreshReg$(_c2, "EducationalText");
+$RefreshReg$(_c2, "NotaInformativa");
 
   $parcel$ReactRefreshHelpers$38d8.postlude(module);
 } finally {
@@ -28244,24 +28091,24 @@ function registerExportsForReactRefresh(module1) {
 },{"react-refresh/runtime":"786KC"}],"aahG8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-/* Talking with a contract often involves transforming data, we recommend you to encapsulate that logic into a class */ parcelHelpers.export(exports, "HelloNEAR", ()=>HelloNEAR);
-class HelloNEAR {
+/* Talking with a contract often involves transforming data, we recommend you to encapsulate that logic into a class */ parcelHelpers.export(exports, "EntrenamientoColaborativo", ()=>EntrenamientoColaborativo);
+class EntrenamientoColaborativo {
     constructor({ contractId , walletToUse  }){
         this.contractId = contractId;
         this.wallet = walletToUse;
     }
-    async getGreeting() {
+    async getColaboradores() {
         return await this.wallet.viewMethod({
             contractId: this.contractId,
-            method: "get_greeting"
+            method: "get_colaboradores"
         });
     }
-    async setGreeting(greeting) {
+    async setColaborador(datasetId) {
         return await this.wallet.callMethod({
             contractId: this.contractId,
-            method: "set_greeting",
+            method: "set_colaborador",
             args: {
-                message: greeting
+                dataset_id: datasetId
             }
         });
     }

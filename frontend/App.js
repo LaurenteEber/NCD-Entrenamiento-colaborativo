@@ -3,18 +3,18 @@ import React from 'react';
 
 import './assets/global.css';
 
-import { EducationalText, SignInPrompt, SignOutButton } from './ui-components';
+import { NotaInformativa, SignInPrompt, SignOutButton } from './ui-components';
 
 
-export default function App({ isSignedIn, helloNEAR, wallet }) {
-  const [valueFromBlockchain, setValueFromBlockchain] = React.useState();
+export default function App({ isSignedIn, contratoNEAR, wallet }) {
+  const [relacion, setRelacion] = React.useState();
 
   const [uiPleaseWait, setUiPleaseWait] = React.useState(true);
 
   // Get blockchian state once on component load
   React.useEffect(() => {
-    helloNEAR.getGreeting()
-      .then(setValueFromBlockchain)
+    contratoNEAR.getColaboradores()
+      .then(setRelacion)
       .catch(alert)
       .finally(() => {
         setUiPleaseWait(false);
@@ -24,16 +24,16 @@ export default function App({ isSignedIn, helloNEAR, wallet }) {
   /// If user not signed-in with wallet - show prompt
   if (!isSignedIn) {
     // Sign-in flow will reload the page later
-    return <SignInPrompt greeting={valueFromBlockchain} onClick={() => wallet.signIn()}/>;
+    return <SignInPrompt onClick={() => wallet.signIn()} />;
   }
 
-  function changeGreeting(e) {
+  function setDatasetId(e) {
     e.preventDefault();
     setUiPleaseWait(true);
-    const { greetingInput } = e.target.elements;
-    helloNEAR.setGreeting(greetingInput.value)
-      .then(async () => {return helloNEAR.getGreeting();})
-      .then(setValueFromBlockchain)
+    const { datasetIdIn } = e.target.elements;
+    contratoNEAR.setColaborador(parseInt(datasetIdIn.value))
+      .then(async () => { return contratoNEAR.getColaboradores(); })
+      .then(setRelacion)
       .finally(() => {
         setUiPleaseWait(false);
       });
@@ -41,26 +41,26 @@ export default function App({ isSignedIn, helloNEAR, wallet }) {
 
   return (
     <>
-      <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()}/>
+      <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
       <main className={uiPleaseWait ? 'please-wait' : ''}>
         <h1>
-          The contract says: <span className="greeting">{valueFromBlockchain}</span>
+          Juntos hacemos accesible la tecnología IA
         </h1>
-        <form onSubmit={changeGreeting} className="change">
-          <label>Change greeting:</label>
+        <form onSubmit={setDatasetId} className="change">
+          <label>Ingresa el ID del dataset que quieres entrenar:</label>
           <div>
             <input
               autoComplete="off"
-              defaultValue={valueFromBlockchain}
-              id="greetingInput"
+              // defaultValue={valueFromBlockchain}
+              id="datasetIdIn"
             />
             <button>
-              <span>Save</span>
+              <span>Empezar</span>
               <div className="loader"></div>
             </button>
           </div>
         </form>
-        <EducationalText/>
+        <NotaInformativa />
       </main>
     </>
   );

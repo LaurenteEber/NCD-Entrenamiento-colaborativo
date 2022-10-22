@@ -1,25 +1,18 @@
 import React from 'react';
 
-export function SignInPrompt({greeting, onClick}) {
+export function SignInPrompt({ onClick }) {
   return (
     <main>
       <h1>
-        The contract says: <span className="greeting">{greeting}</span>
+        Bienvenido a la plataforma de entrenamiento colaborativo de IA
       </h1>
       <h3>
-        Welcome to NEAR!
+        ¿Te gustaría participar en el entrenamiento colaborativo? 
       </h3>
-      <p>
-        Your contract is storing a greeting message in the NEAR blockchain. To
-        change it you need to sign in using the NEAR Wallet. It is very simple,
-        just use the button below.
-      </p>
-      <p>
-        Do not worry, this app runs in the test network ("testnet"). It works
-        just like the main network ("mainnet"), but using NEAR Tokens that are
-        only for testing!
-      </p>
-      <br/>
+      <h3>
+        Si estas de acuerdo inicia sesión con tu wallet de NEAR 
+      </h3>
+      <br />
       <p style={{ textAlign: 'center' }}>
         <button onClick={onClick}>Sign in with NEAR Wallet</button>
       </p>
@@ -27,7 +20,7 @@ export function SignInPrompt({greeting, onClick}) {
   );
 }
 
-export function SignOutButton({accountId, onClick}) {
+export function SignOutButton({ accountId, onClick }) {
   return (
     <button style={{ float: 'right' }} onClick={onClick}>
       Sign out {accountId}
@@ -35,25 +28,23 @@ export function SignOutButton({accountId, onClick}) {
   );
 }
 
-export function EducationalText() {
+export function NotaInformativa() {
   return (
     <>
       <p>
-        Look at that! A Hello World app! This greeting is stored on the NEAR blockchain. Check it out:
+        Tomar en cuenta lo siguiente:
       </p>
       <ol>
         <li>
-          Look in <code>frontend/App.js</code> - you'll see <code>getGreeting</code> and <code>setGreeting</code> being called on <code>contract</code>. What's this?
+          Cuando inicias 10 NEAR se pondran en staking, una vez pases el proceso de validación se libreran y adicionalmente se te depositaran 10 NEAR como recompensa.
         </li>
         <li>
-          Ultimately, this <code>contract</code> code is defined in <code>./contract</code> – this is the source code for your <a target="_blank" rel="noreferrer" href="https://docs.near.org/docs/develop/contracts/overview">smart contract</a>.</li>
+          El proceso de validación consiste en que el etiquetado que realices debe tener al menos el 90% de coincidencia con las etiquetas en nuestra base de datos, después de 3 colaboraciones posteriores en la base de datos que elegiste.
+          </li>
         <li>
-          When you run <code>npm run deploy</code>, the code in <code>./contract</code> gets deployed to the NEAR testnet. You can see how this happens by looking in <code>package.json</code>.</li>
+          Si llegado las 3 colaboraciones tu etiquetado no ha llegado al nivel requerido de coincidencia, pierdes los NEAR en staking y estos son pasado al pozo de recompensas.</li>
       </ol>
-      <hr />
-      <p>
-        To keep learning, check out <a target="_blank" rel="noreferrer" href="https://docs.near.org">the NEAR docs</a> or look through some <a target="_blank" rel="noreferrer" href="https://examples.near.org">example apps</a>.
-      </p>
+
     </>
   );
 }

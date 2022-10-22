@@ -1,4 +1,4 @@
-# Hello NEAR Contract
+<!-- # Hello NEAR Contract
 
 The smart contract exposes two methods to enable storing and retrieving a greeting in the NEAR network.
 
@@ -88,4 +88,4 @@ near call <dev-account> set_greeting '{"greeting":"howdy"}' --accountId <dev-acc
 near login
 ```
 
-and then use the logged account to sign the transaction: `--accountId <your-account>`.
+and then use the logged account to sign the transaction: `--accountId <your-account>`. -->

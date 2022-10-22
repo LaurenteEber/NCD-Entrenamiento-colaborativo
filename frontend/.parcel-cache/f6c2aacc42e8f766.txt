@@ -1,7 +1,7 @@
 18562
-87/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/index.html1666400301204938606 0
+87/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/index.html1666406227655815277 0
 94/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/assets/global.css1666400301215771939 0
-92/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.html1666401926963299956 0
+92/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.html1666406228099981919 0
 102/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/favicon.721fd337.ico1666401586428289270 0
 102/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/favicon.eee7a1e8.ico1666401926746633304 0
 104/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.bc0daea6.css.map1666401926768299969 0
@@ -10,9 +10,9 @@
 99/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.59bbe7f1.js1666401618635790280 0
 103/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.ead86568.js.map1666401619350790313 0
 105/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/logo-black.54439fde.svg1666401618635790280 0
-81/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist1666401927223299937 1
-85/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/index.js1666400301194105272 0
-93/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/ui-components.js1666400301194105272 0
+81/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist1666408556725032503 1
+85/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/index.js1666403665464151747 0
+93/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/ui-components.js1666406929114121967 0
 91/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/near-wallet.js1666400301215771939 0
 94/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/package-lock.json1666400508251609050 0
 112/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/resolve-from/readme.md1666400495598275514 0
@@ -801,7 +801,7 @@
 125/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/nodemon/node_modules/semver/LICENSE1666400494796608835 0
 127/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/nodemon/node_modules/semver/semver.js1666400496735775532 0
 117/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/nodemon/node_modules/semver1666400496995775536 1
-94/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/near-interface.js1666400301215771939 0
+94/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/near-interface.js1666405219083328925 0
 122/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/nodemon/node_modules/.bin/semver1666400507482442371 0
 115/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/nodemon/node_modules/.bin1666400507482442371 1
 110/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/nodemon/node_modules1666400507482442371 1
@@ -4901,7 +4901,7 @@
 143/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/posthtml/node_modules/posthtml-parser/dist/index.d.ts1666400496887442201 0
 146/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/@ledgerhq/devices/node_modules/rxjs/operator/single.d.ts1666400505684109008 0
 141/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/posthtml/node_modules/posthtml-parser/dist/index.js1666400495923275519 0
-99/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.3d214d75.js1666401927190799940 0
+99/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.3d214d75.js1666408556194198907 0
 153/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/typescript/loc/lcl/KOR/TypeScriptTasks/TypeScript.Tasks.dll.lcl1666400506074109015 0
 152/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/posthtml/node_modules/posthtml-parser/dist/location-tracker.js1666400496269942191 0
 144/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/caniuse-lite/data/features/css-indeterminate-pseudo.js1666400501274942270 0
@@ -5774,7 +5774,7 @@
 136/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/rxjs/dist/types/internal/operators/sample.d.ts1666400504611608991 0
 142/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/rxjs/dist/types/internal/operators/raceWith.d.ts.map1666400503679942309 0
 116/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/concat-map/README.markdown1666400496139942189 0
-103/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.3d214d75.js.map1666401927212466605 0
+103/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/dist/index.3d214d75.js.map1666408556475865713 0
 117/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/@parcel/transformer-css/lib1666400494883275503 1
 141/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/babel-plugin-polyfill-regenerator/esm/index.mjs.map1666400496215775524 0
 141/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/rxjs/dist/types/internal/operators/endWith.d.ts.map1666400503159942301 0
@@ -8488,7 +8488,7 @@
 114/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/terser/lib/propmangle.js1666400500689942261 0
 127/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/@babel/plugin-transform-block-scoping1666400497309942208 1
 132/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/lmdb/node_modules/node-addon-api/README.md1666400499194942237 0
-83/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/App.js1666400301194105272 0
+83/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/App.js1666407581172465046 0
 153/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/@ledgerhq/devices/node_modules/rxjs/internal/operators/delay.js1666400501643275609 0
 146/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/@swc/helpers/lib/_class_static_private_field_spec_get.js1666400498859108899 0
 133/home/eber/2.Learning/near_contracts/NCD-Entrenamiento-colaborativo/frontend/node_modules/@babel/helper-create-regexp-features-plugin1666400497158275539 1
